@@ -9,4 +9,9 @@ public class KafkaConsumer {
     public void listener(String message) {
         System.out.println("Received message: " + message);
     }
+
+    @KafkaListener(topics = "my-topic-1", groupId = "my-group")
+    public void riderListener(String message) {
+        System.out.println("Received message: " + message);
+    }
 }
