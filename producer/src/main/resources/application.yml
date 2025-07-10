@@ -2,13 +2,27 @@ spring:
   application:
     name: producer
 
-  kafka:
-    producer:
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-
   cloud:
     function:
-      definition: processMessage
-    function.web.path: /process
+      definition: sendRider
+    stream:
+      function:
+        definition: sendRider
+      bindings:
+        sendRider-in-0:
+          destination: my-topic
+          content-type: application/json
+        kafka:
+          binder:
+            brokers: localhost:9092
+
+#  kafka:
+#    producer:
+#      bootstrap-servers: localhost:9092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#
+#  cloud:
+#    function:
+#      definition: processMessage
+#    function.web.path: /process

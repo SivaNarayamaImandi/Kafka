@@ -11,6 +11,10 @@ public class Rider {
         this.age = age;
     }
 
+    public Rider() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
