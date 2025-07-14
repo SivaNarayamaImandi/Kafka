@@ -13,7 +13,7 @@ spring:
           destination: my-topic
           content-type: application/json
       poller:
-        fixed-delay: 5000
+        fixed-delay: 1000
       kafka:
         binder:
           brokers: localhost:9092
