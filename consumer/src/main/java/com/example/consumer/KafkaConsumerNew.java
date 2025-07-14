@@ -13,4 +13,10 @@ public class KafkaConsumerNew {
             System.out.println("Received: " + rider.getFirstName() + ", " + rider.getLastName() + ", " + rider.getAge());
         };
     }
+    @Bean
+    public Consumer<String> riderAge(){
+        return status -> {
+            System.out.println("Rider is " + status);
+        };
+    }
 }

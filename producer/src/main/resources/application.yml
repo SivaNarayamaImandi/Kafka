@@ -4,7 +4,7 @@ spring:
 
   cloud:
     function:
-      definition: sendRider
+      definition: sendRider;sendAge
     stream:
       function:
         definition: sendRider
@@ -12,8 +12,11 @@ spring:
         sendRider-out-0:
           destination: my-topic
           content-type: application/json
+        sendAge-out-0:
+          destination: my-topic-1
+          content-type: text/plain
       poller:
-        fixed-delay: 1000
+        fixed-delay: 500
       kafka:
         binder:
           brokers: localhost:9092

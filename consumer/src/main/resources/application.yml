@@ -3,12 +3,16 @@ spring:
     name: consumer
 
   cloud:
+    function:
+      definition: riderName;riderAge
     stream:
       function:
-        definition: riderName
+        definition: riderName;riderAge
       bindings:
         riderName-in-0:
           destination: my-topic
+        riderAge-in-0:
+          destination: my-topic-1
       kafka:
         binder:
           brokers: localhost:9092
